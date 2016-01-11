@@ -1,0 +1,88 @@
+<div class="jumbotron">
+    <h1>Video Uploader</h1>
+    <p class="lead">
+        <img src="images/yeoman.png" alt="I'm Yeoman"><br>
+        Always a pleasure uploading your videos ;)
+    </p>
+</div>
+
+<div class="row marketing">
+    <form ng-hide="showPreview">
+        <fieldset ng-disabled="locked">
+            <h4>Name your video</h4>
+            <p>Set the name that will appear on Wistia for the uploaded video.</p>
+            <p>
+                <input
+                    class="form-control"
+                    type="text"
+                    name="video-name"
+                    ng-model="videoName"
+                    ng-change="setUploaderState()"
+                />
+            </p>
+
+            <!---------------------------------------------------------------------------->
+
+            <h4>Describe your video</h4>
+            <p>Set a description so people know what your video is all about.</p>
+            <p>
+                <textarea
+                    class="form-control"
+                    name="video-description"
+                    ng-model="videoDescription"
+                    ng-change="setUploaderState()"
+                ></textarea>
+            </p>
+
+            <!---------------------------------------------------------------------------->
+
+            <h4>Upload video file and you're done!</h4>
+            <p>
+                Your video file will be uploaded to Wistia.
+                Check the progress indicator and enjoy your video right after it gets uploaded!
+            </p>
+
+            <fieldset ng-disabled="!uploaderIsEnabled">
+                <file-uploader upload-scope="wistiaUploader"></file-uploader>
+
+                <div class="progress-bar-container" ng-show="wistiaUploader.hasFiles">
+                    <div ng-repeat="file in wistiaUploader.files | orderBy: 'file'">
+                        <progress-bar
+                            uib-tooltip="{{file.error}}"
+                            text="{{file.original_name}}"
+                            active="file.active"
+                            percentage="{{file.percentage}}"
+                            error="{{file.error}}">
+
+                            <span class="action actions-active smooth" ng-show="!file.active">
+                                <a ng-click="removeDocument(file)" class="fui-trash state-danger" title="Delete file"></a>
+                            </span>
+                        </progress-bar>
+                    </div>
+                </div>
+
+                <div class="progress-bar-container" ng-hide="wistiaUploader.hasFiles">
+                    <div class="empty">
+                        Uploaded videos will appear here.
+                    </div>
+                </div>
+            </fieldset>
+        </fieldset>
+    </form>
+
+    <div ng-show="showPreview">
+        <div ng-show="videoIsReady">
+            <h4>Here's your new, glossy and shiny video! Enjoy!</h4>
+            <div id="videoPreview" ng-bind-html="videoPreviewHtml"></div>
+        </div>
+
+        <div ng-show="!videoIsReady">
+            <h4>Your video <em>'{{videoName}}'</em> is being processed...</h4>
+            <p>Sit tight, the show will start shortly!</p>
+
+            <uib-progressbar max="100" value="videoProcessingPercentage">
+                <span style="color:white; white-space:nowrap;">{{videoProcessingPercentage | number:0}}%</span>
+            </uib-progressbar>
+        </div>
+    </div>
+</div>

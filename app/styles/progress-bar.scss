@@ -1,0 +1,68 @@
+$top: 6px;
+$side-margin: 10px;
+$background-active: #D8F3FC;
+$background-inactive: #F9F9F9;
+$alternative-color: #a3a2a2;
+$border-color: #E4E4E4;
+$danger-color: red;
+$alert-bg: white;
+
+.progress-bar-container {
+    border: 2px solid $border-color;
+    border-radius: 5px;
+    position: relative;
+    z-index: 100;
+
+    .empty {
+        padding: 10px;
+    }
+}
+
+.app-progress-bar {
+    position: relative;
+    margin: 0;
+    border-bottom: 1px solid $border-color;
+
+    .right-container {
+        position: absolute;
+        top: $top;
+        right: $side-margin;
+        z-index: 10;
+    }
+
+    .progress {
+        width: 0;
+        height: 30px;
+        border-radius: 0;
+        background: $background-active;
+        margin: 0;
+        opacity: 1;
+        position: relative;
+    }
+
+    .progress.inactive {
+        opacity: 0;
+    }
+
+    .text {
+        position: absolute;
+        top: $top;
+        left: $side-margin;
+
+        /* avoid text breaks; show ellipsis */
+        text-overflow: ellipsis;
+        width: 90%;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    .percentage {
+        color: $alternative-color;
+    }
+}
+
+.app-progress-bar.error {
+    //padding: 0 5px;
+    background: #F7A8A8;
+    //border-bottom: 1px solid $border-color;
+}

@@ -1,0 +1,11 @@
+<div class="app-progress-bar" ng-class="{'error': error}">
+    <div class="progress" ng-class="{'inactive': !active, 'smooth': percentage<=90, 'smoother': percentage>90}"></div>
+    <div class="text" ng-class="{'text-danger': error}">{{text}}</div>
+    <div class="right-container smooth">
+        <span class="percentage smooth" ng-show="active && percentage >= 0">
+            <span class="percentage-value">{{percentage}}</span>%
+        </span>
+
+        <span class="actions" ng-transclude></span>
+    </div>
+</div>

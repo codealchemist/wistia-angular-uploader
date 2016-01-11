@@ -1,0 +1,18 @@
+{
+    "id":17474211,
+    "name":"ROCK",
+    "type":"Video",
+    "created":"2016-01-11T02:04:04+00:00",
+    "updated":"2016-01-11T02:04:05+00:00",
+    "duration":5.312,
+    "hashed_id":"f5zw67gyys",
+    "description":"Awesome video!",
+    "progress":0.0,
+    "status":"queued",
+    "thumbnail":{
+        "url":"https://embed-ssl.wistia.com/deliveries/3b848a3823a55fcd932a92718930c7825e8ae2c0.jpg?image_crop_resized=100x60&video_still_time=2",
+        "width":100,
+        "height":60
+    },
+    "account_id":403402
+}
