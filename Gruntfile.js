@@ -503,7 +503,6 @@ module.exports = function (grunt) {
     'concat',
     'ngAnnotate',
     'copy:dist',
-    'copy:fonts',
     'cdnify',
     'cssmin',
     'uglify',
