@@ -20,7 +20,7 @@ angular.module('app.service.upload', [])
          * - remove: removes a file from tracking
          * - deactivate: deactivates an active upload
          * - hasActiveUploads: returns true if has active uploads
-         * - hasNewFiles: returns false if new files were added
+         * - hasNewFiles: returns true if new files were added
          * - getNewFilesCount: returns amount of new files added
          * - getActiveUploadsCount: returns amount of active uploads
          *
