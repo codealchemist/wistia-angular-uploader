@@ -167,7 +167,7 @@
 
                 // ok, processing completed!
                 // embed video
-                var iframeHtml = '<iframe src="http://fast.wistia.net/embed/iframe/' + hashedId + '" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" width="700" height="380"></iframe>';
+                var iframeHtml = '<iframe src="https://fast.wistia.net/embed/iframe/' + hashedId + '" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" width="700" height="380"></iframe>';
                 $scope.videoPreviewHtml = $sce.trustAsHtml(iframeHtml);
                 $scope.videoIsReady = true;
             }
